@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: comment-compass-api
+    runtime: docker
+    rootDir: backend
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL        # Neon connection string
+        sync: false
+      - key: YOUTUBE_API_KEY
+        sync: false
+      - key: CORS_ORIGINS        # your exact Vercel URL
+        sync: false
+      - key: APP_URL             # your Vercel URL
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD      # 12+ characters
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: BREVO_API_KEY       # starts with xkeysib-
+        sync: false
+      - key: BREVO_FROM_EMAIL
+        sync: false
